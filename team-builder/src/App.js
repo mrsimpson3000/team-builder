@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Form from "./Form";
+import TeamCard from "./TeamCard";
+import { Container, Row, Col } from "reactstrap";
 import { v4 as uuid } from "uuid";
 import "./App.css";
 
@@ -12,7 +14,7 @@ const App = () => {
     fname: "",
     lname: "",
     email: "",
-    role: 1
+    role: ""
   });
 
   const onInputChange = event => {
@@ -38,12 +40,21 @@ const App = () => {
 
   return (
     <div className='App'>
-      <Form
-        onInputChange={onInputChange}
-        formValues={formValues}
-        onFormSubmit={onFormSubmit}
-      />
-      <h3>Team Members: </h3>
+      <Container>
+        <Row>
+          <Form
+            onInputChange={onInputChange}
+            formValues={formValues}
+            onFormSubmit={onFormSubmit}
+          />
+        </Row>
+        <Row>
+          {team.map((teamMember, index) => {
+            return <TeamCard teamMember={teamMember} key={index} />;
+          })}
+        </Row>
+      </Container>
+      {/* <h3>Team Members: </h3>
       {team.map(tm => (
         <div key={tm.id}>
           {tm.fname} {tm.lname}
@@ -52,7 +63,7 @@ const App = () => {
           <br />
           {tm.role}
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };
