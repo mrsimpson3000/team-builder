@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardHeader, CardText, CardBody, Col } from "reactstrap";
+import { Card, CardHeader, CardText, CardBody, Col, Button } from "reactstrap";
 
 const TeamCard = props => {
   return (
@@ -14,6 +14,8 @@ const TeamCard = props => {
           <CardText className='text-light'>
             Role: {props.teamMember.role}
           </CardText>
+          <Button className='bg-primary m-2'>Edit</Button>
+          <Button className='bg-primary m-2'>Delete</Button>
         </CardBody>
       </Card>
     </Col>

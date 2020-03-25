@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "./Form";
 import TeamCard from "./TeamCard";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row } from "reactstrap";
 import { v4 as uuid } from "uuid";
 import "./App.css";
 
