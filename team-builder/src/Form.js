@@ -12,22 +12,28 @@ import {
   Input
 } from "reactstrap";
 
-const Forms = props => {
+const MyForm = props => {
   return (
     <Container>
       <Card className='mt-5 bg-success'>
         <CardBody>
-          <Form className='p-5'>
+          <h3 className='text-center'>
+            Fill Out The Form To Add A Member To The Team
+          </h3>
+          <hr />
+          <Form onSubmit={props.onFormSubmit} className='p-2'>
             <Row form>
               <Col md={6}>
                 <FormGroup>
-                  <Label for='firstName' /> First Name
+                  <Label for='firstName' />
+                  First Name
                   <Input
+                    required
                     id='firstName'
                     type='text'
                     name='fname'
-                    value=''
-                    onChange=''
+                    value={props.formValues.fname}
+                    onChange={props.onInputChange}
                   />
                 </FormGroup>
               </Col>
@@ -36,26 +42,28 @@ const Forms = props => {
                   <Label for='lastName' />
                   Last Name
                   <Input
+                    required
                     id='lastName'
                     type='text'
                     name='lname'
-                    value=''
-                    onChange=''
+                    value={props.formValues.lname}
+                    onChange={props.onInputChange}
                   />
                 </FormGroup>
               </Col>
             </Row>
-            <Row form>
+            <Row form className='pt-5'>
               <Col md={6}>
                 <FormGroup>
                   <Label for='email' />
                   Email
                   <Input
+                    required
                     id='email'
                     type='email'
                     name='email'
-                    value=''
-                    onChange=''
+                    value={props.formValues.email}
+                    onChange={props.onInputChange}
                   />
                 </FormGroup>
               </Col>
@@ -67,18 +75,20 @@ const Forms = props => {
                     id='role'
                     type='select'
                     name='role'
-                    value=''
-                    onChange=''
+                    value={props.formValues.role}
+                    onChange={props.onInputChange}
                   >
-                    <option value='1'>Team Lead</option>
-                    <option value='2'>Designer</option>
-                    <option value='3'>Front End</option>
-                    <option value='4'>Back End</option>
+                    <option value='Team Lead'>Team Lead</option>
+                    <option value='Designer'>Web Designer</option>
+                    <option value='Front End'>Front End Dev</option>
+                    <option value='Back End'>Back End Dev</option>
                   </Input>
                 </FormGroup>
               </Col>
             </Row>
-            <Button className='bg-primary mt-5'>Add Team Member</Button>
+            <Button type='submit' className='bg-primary mt-5'>
+              Add Team Member
+            </Button>
           </Form>
         </CardBody>
       </Card>
@@ -86,4 +96,4 @@ const Forms = props => {
   );
 };
 
-export default Forms;
+export default MyForm;
